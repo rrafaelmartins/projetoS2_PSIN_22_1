@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,400;0,700;1,400&family=Roboto:wght@100;700&display=swap');
+
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #7A247D;
+    justify-content: space-evenly;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    max-width: 100%;
+}
+
+.home-bloco1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 400px;
+    max-width: 100%;
+}
+
+.home-bloco1 a img{
+    width: 100%;
+    max-width: 80px;
+}
+
+.barra-busca-home{
+    background-color: #7A247D;
+    font-size: 16px;
+    border-color: #F5C661;
+    border-top: #000000;
+    border-right: #000000;
+    border-left: #000000;
+    color: #F5C661;
+    max-width: 100%;
+}
+
+.home-sublobo1{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;    
+    align-items: baseline;
+    justify-content: space-evenly;
+    max-width: 100%;
+}
+
+#searchbutton{
+    border: none;
+    background-color: #7A247D;
+    position: relative;
+    top: 8px;
+    max-width: 100%;
+}
+
+.img-lupinha{
+    width: 23px;
+    height: 25px;
+    max-width: 100%;
+}
+
+.home-bloco2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 320px;
+    max-width: 100%;
+}
+
+
+.img-carrinho{
+    width: 38px;
+    max-width: 100%;
+}
+
+.img-conta{
+    width: 30px;
+    padding-top: 4.7px;
+    max-width: 100%;
+}
+
+.faca_pedido{
+    background-color: #F5C661;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    padding: 8px 15px 8px 15px;
+    max-width: 100%;
+}
+
+.img-carrinho:onclick{
+    display: none;
+}
+
+.modal{
+    opacity: 0;
+    background-color: #F5C661;
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    right: 0;
+    border: solid;
+    border-color: #7A247D;
+    transition: 1;
+}
+
+.modal:target{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fechar{
+    text-decoration: none;
+}
