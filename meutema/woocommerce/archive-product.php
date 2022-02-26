@@ -10,15 +10,13 @@ get_header();
 
 <?php if(have_posts()) { while (have_posts()) { the_post(); 
     $products[] = wc_get_product(get_the_ID());
-	
 } } 
+
 $data['products'] = format_products($products);
-
-
 
 ?>
 
-<main>
+<main class="lista-productsmain">
 	<?php if($data['products']){ ?>
 		<?php product_list($data['products']) ?>
 	<?php } else { ?>

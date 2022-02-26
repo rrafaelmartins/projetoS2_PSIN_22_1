@@ -29,6 +29,11 @@ header{
     max-width: 80px;
 }
 
+.linkheader{
+    text-decoration: none;
+    color: black;
+}
+
 .barra-busca-home{
     background-color: #7A247D;
     font-size: 16px;
@@ -116,5 +121,13 @@ header{
 }
 
 .fechar{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     text-decoration: none;
+}
+
+.lista-product-carrinho{
+    display: flex;
+    flex-direction: column;
 }

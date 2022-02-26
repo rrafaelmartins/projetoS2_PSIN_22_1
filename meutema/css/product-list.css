@@ -1,14 +1,23 @@
+.lista-productsmain{
+    text-align: center;
+}
+
 .products-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 230px 0px 230px;
 }
 
-.products-info2{
-    width: 240px;
-    height: 373px;
+.product-info{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 222px;
+    height: 300px;
 }
+
 
 .name-price-add{
     display: flex;
@@ -16,13 +25,31 @@
     background:  linear-gradient( to right, #7A247D, rgba(138, 138, 138, 0) );
     color: white;
     text-decoration-line: none;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
 }
 
 .price-add{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
+.letras{
+    font-size: 17px;
+    color: white;
+    font-weight: bold;
+    padding-left: 6px;
+}
+
+.link-productlist{
+    text-decoration: none;
+}
+
+.carrinho2{
+    padding-right: 10px;
+    width: 40px;
+    height: 37px;
+}

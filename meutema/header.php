@@ -9,21 +9,41 @@
     <?php wp_head(); ?>
 </head>
 
+<?php 
+    $cart_count = WC()->cart->get_cart_contents_count();
+    $cart2 = WC()->cart->get_total();
+    global $woocommerce;
+	$items = $woocommerce->cart->get_cart();
+?>
+
 <div id="abrir" class="modal">
     <a href="#fechar" class="fechar">X</a>
+    <h1>CARRINHO</h1>
     <ul>
-        <li>
-           asdsdaf
+        <li class="lista-product-carrinho">
+    	    <?php
+               foreach($items as $item => $values) { 
+                $_product =  wc_get_product( $values['data']->get_id() );
+                //product image
+                $getProductDetail = wc_get_product( $values['product_id'] );
+                echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
+    
+                echo "<b>".$_product->get_title() .'</b>  <br> Quantity: '.$values['quantity'].'<br>'; 
+                $price = get_post_meta($values['product_id'] , '_price', true);
+                echo "  Price: ".$price."<br>";
+                /*Regular Price and Sale Price*/
+                echo "Regular Price: ".get_post_meta($values['product_id'] , '_regular_price', true)."<br>";
+                echo "Sale Price: ".get_post_meta($values['product_id'] , '_sale_price', true)."<br>";
+            }
+            ?>
         </li>
     </ul>
+    <h2>Total do Carrinho: <?=$cart2;?> </h2>
+    <a href="/checkout">COMPRAR</a>
 </div>
 
 <body <?php body_class(); ?>>
 
-<?php 
-    $cart_count = WC()->cart->get_cart_contents_count();
-    $carrinho = WC()->cart->get_cart_contents()
-?>
 <header class="header_container">
     
     <div class="home-bloco1"><a href="/"><img src="<?php echo get_stylesheet_directory_uri() ?>/img/comesbebes.png"></a>
@@ -35,7 +55,9 @@
     </div>
 
     <div class="home-bloco2">
-        <h1 class="faca_pedido">Faça um pedido</h1>
+        <a class="linkheader" href="/shop">
+            <h1 class="faca_pedido">Faça um pedido</h1>
+        </a>
         <a href="#abrir"><img class="img-carrinho" src="<?php echo get_stylesheet_directory_uri() ?>/img/carrinho.png" alt="meu carrinho"></a>
         <a href="/my-account"><img class="img-conta" src="<?php echo get_stylesheet_directory_uri() ?>/img/conta.png" alt="minha conta"></a>
         <?php if($cart_count){ ?>

@@ -33,10 +33,8 @@
 
     add_filter( 'woocommerce_product_single_add_to_cart_text', 'adicionar-carrinho' ); 
 
-
-
     function format_products($products, $img_size = 'medium'){
-        $product_final = [];
+        $product_final_cart = [];
         
         foreach($products as $product){
             $product_final[] = [
@@ -55,15 +53,15 @@
         <ul class="products-list">
             <?php foreach($products as $product){ ?>
                 <li class="product-item">
-                    <a href="<?=$product['link']; ?>">
-                        <div class="product-info">
-                            <img class="foto-prato" src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>">
+                    <a class="link-productlist" href="<?=$product['link']; ?>">
+                        <div style="background-image: url(<?= $product['img']; ?>); background-repeat: no-repeat, repeat;
+                        background-position: center; background-size: cover; " class="product-info">
                             <div class="name-price-add">
-                                <h2><?= $product['name'];?></h2>
+                                <h2 class="letras" ><?= $product['name'];?></h2>
                                 <div class="price-add">
-                                    <h3><?= $product['price'];?></h3>
+                                    <h3 class="letras"><?= $product['price'];?></h3>
                                     <a href="/shop/?add-to-cart=<?= $product['id'];?>&quantity=1“">
-                                        <h2><img src="<?php echo get_stylesheet_directory_uri() ?>/img/carrinho2.png"></h2>
+                                        <h2><img class="carrinho2" src="<?php echo get_stylesheet_directory_uri() ?>/img/carrinho2.png"></h2>
                                     </a>
                                 </div>
                             </div>
@@ -75,3 +73,4 @@
     <?php
     }
 ?>
+
