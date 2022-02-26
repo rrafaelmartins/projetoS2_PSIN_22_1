@@ -12,34 +12,33 @@
 <?php 
     $cart_count = WC()->cart->get_cart_contents_count();
     $cart2 = WC()->cart->get_total();
-    global $woocommerce;
-	$items = $woocommerce->cart->get_cart();
 ?>
 
 <div id="abrir" class="modal">
     <a href="#fechar" class="fechar">X</a>
-    <h1>CARRINHO</h1>
+    <div>
+        <h1 class="listacarrinho-box1">CARRINHO</h1>
+    </div>
     <ul>
         <li class="lista-product-carrinho">
     	    <?php
-               foreach($items as $item => $values) { 
-                $_product =  wc_get_product( $values['data']->get_id() );
-                //product image
-                $getProductDetail = wc_get_product( $values['product_id'] );
-                echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
-    
-                echo "<b>".$_product->get_title() .'</b>  <br> Quantity: '.$values['quantity'].'<br>'; 
-                $price = get_post_meta($values['product_id'] , '_price', true);
-                echo "  Price: ".$price."<br>";
-                /*Regular Price and Sale Price*/
-                echo "Regular Price: ".get_post_meta($values['product_id'] , '_regular_price', true)."<br>";
-                echo "Sale Price: ".get_post_meta($values['product_id'] , '_sale_price', true)."<br>";
-            }
-            ?>
+               foreach ( WC()->cart->get_cart() as $cart_item ) { ?>
+                    <div class="lista-produtos-carrinho">
+                        <?php echo $imagem = $cart_item['data']->get_image(); ?>
+                        <div class="texto-carrinho-produto">
+                            <?php echo $item_name = $cart_item['data']->get_title(); ?>
+                            <br>
+                           <?php echo $quantity = $cart_item['quantity']; ?>
+                        </div>
+                        <div><?php echo $price = $cart_item['data']->get_price_html(); ?></div>      
+                    </div>  
+            <?php } ?>
         </li>
     </ul>
-    <h2>Total do Carrinho: <?=$cart2;?> </h2>
-    <a href="/checkout">COMPRAR</a>
+    <div>
+        <h2 class="listacarrinho-box2">Total do Carrinho: <?=$cart2;?></h2>
+    </div>
+    <div class="botao-comprar-carrinho-box"><a class="botao-comprar-carrinho" href="/checkout">COMPRAR</a></div>
 </div>
 
 <body <?php body_class(); ?>>

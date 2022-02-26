@@ -108,11 +108,12 @@ header{
     background-color: #F5C661;
     position: fixed;
     height: 100%;
-    width: 300px;
+    width: 400px;
     right: 0;
     border: solid;
     border-color: #7A247D;
     transition: 1;
+    overflow: scroll;
 }
 
 .modal:target{
@@ -131,3 +132,75 @@ header{
     display: flex;
     flex-direction: column;
 }
+
+.lista-produtos-carrinho{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    background-color: white;
+    margin: 10px 30px 10px 30px;
+    border: solid;
+    border-color: #7A247D; 
+    font-weight: bold;
+    padding: 0px 15px 0px 0px;
+}
+
+.lista-produtos-carrinho img{
+    width: 80px;
+    height: 80px;
+}
+
+.texto-carrinho-produto{
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+}
+
+.listacarrinho-box1{
+    border: solid;
+    border-color: #7A247D;
+    border-top: #000000;
+    border-right: #000000;
+    border-left: #000000;
+    border-width: 2px;
+    width: 323px;
+    position: relative;
+    left: 30px;
+    margin-bottom: 20px;
+    color:#7A247D;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+
+.listacarrinho-box2{
+    border: solid;
+    border-color: #7A247D;
+    border-bottom: #000000;
+    border-right: #000000;
+    border-left: #000000;
+    border-width: 2px;
+    width: 322px;
+    position: relative;
+    left: 30px;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.botao-comprar-carrinho-box{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.botao-comprar-carrinho{
+    background-color: #7A247D;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 6px 40px 6px 40px;
+}
+
