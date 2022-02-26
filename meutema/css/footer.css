@@ -1,0 +1,17 @@
+footer{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    left:0;
+    background-color: #F5C661;
+    padding: 4px 0px 4px 0px;
+
+}
+
+.copyright{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+
+}   
