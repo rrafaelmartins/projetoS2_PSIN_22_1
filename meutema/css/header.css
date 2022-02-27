@@ -11,7 +11,7 @@ header{
     justify-content: space-evenly;
     padding-top: 13px;
     padding-bottom: 13px;
-    max-width: 100%;
+    width: 100%;
 }
 
 .home-bloco1{
@@ -20,13 +20,13 @@ header{
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    width: 400px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
 }
 
 .home-bloco1 a img{
-    width: 100%;
-    max-width: 80px;
+    width: 80px;
+    max-width: 100%;
 }
 
 .linkheader{
@@ -63,9 +63,9 @@ header{
 }
 
 .img-lupinha{
-    width: 23px;
+    width: 100%;
     height: 25px;
-    max-width: 100%;
+    max-width: 23px;
 }
 
 .home-bloco2{
@@ -104,20 +104,19 @@ header{
 }
 
 .modal{
-    opacity: 0;
+    display: none;
     background-color: #F5C661;
     position: fixed;
     height: 100%;
-    width: 400px;
+    max-width: 400px;
     right: 0;
     border: solid;
     border-color: #7A247D;
-    transition: 1;
     overflow: scroll;
 }
 
 .modal:target{
-    opacity: 1;
+    display: block;
     pointer-events: auto;
 }
 

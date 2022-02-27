@@ -33,6 +33,22 @@
 
     add_filter( 'woocommerce_product_single_add_to_cart_text', 'adicionar-carrinho' ); 
 
+    function format_products2($products, $img_size = 'medium'){
+        $product_final_cart = [];
+        
+        foreach($products as $product){
+            $product_final[] = [
+                'name' => $product->get_name(),
+                'price' => $product->get_price_html(),
+                'link' => $product->get_permalink(),
+                'id' => $product->get_id(),
+                'img' => wp_get_attachment_image_src($product->get_image_id(), $img_size)[0],
+            
+            ];
+        }
+        return $product_final;
+    }
+
     function format_products($products, $img_size = 'medium'){
         $product_final_cart = [];
         
@@ -72,5 +88,5 @@
         </ul>
     <?php
     }
-?>
 
+?>
