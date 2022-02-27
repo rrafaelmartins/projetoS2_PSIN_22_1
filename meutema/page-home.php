@@ -57,8 +57,51 @@ get_header(); ?>
             <h1 class="nomes-home-categoria">JAPONESA</h1>
         </li>
     </ul>
+
+    <div class = "pratos-dia">
+        <h2>Pratos do dia de hoje:</h2>
+        <h3 id = "dia"><?php $dia = get_day(); echo $dia ?></h3>
+    </div>
     
+    <?php
+    
+    //echo date('w');
+    
+    $dia = get_day();
+    
+    $products_week = wc_get_products([
+        'limit' => 4,
+        'tag' => $dia,
+    ]);
+    
+    //do_action('pegar_dia');
+    //print_r($products_week);
+    
+    $data['products'] = format_products($products_week);
+    
+    ?>
+    
+    
+    <main class="lista-productsmain">
+        <?php if($data['products']){ ?>
+            <?php product_list($data['products']) ?>
+        <?php } else { ?>
+            <?php echo "<p>Nenhum produto encontrado</p>"; ?>
+            <?php } ?>
+    </main>
+  
 </div>
+
+
+    <a class="linkheader" href="/shop/">
+        <p class="maisop">Veja outras opções</p>
+    </a>
+
+
+<div class="footer2">
+            
+</div>
+
 
 
 

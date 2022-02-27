@@ -89,4 +89,31 @@
     <?php
     }
 
+    function get_day(){
+        $dayweek = date('w');
+        if($dayweek == 0){
+            return 'Domingo';
+        }
+        else if($dayweek == 1){
+            return 'Segunda';
+        }
+        else if($dayweek == 2){
+            return 'Terça';
+        }
+        else if($dayweek == 3){
+            return 'Quarta';
+        }
+        else if($dayweek == 4){
+            return 'Quinta';
+        }
+        else if($dayweek == 5){
+            return 'Sexta';
+        }
+        else if($dayweek == 6){
+            return 'Sabado';
+        }
+
+    };
+
+    add_action('pegar_dia', 'get_day');
 ?>
