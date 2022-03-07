@@ -1,0 +1,67 @@
+.minhacontacss input{
+    border: solid;
+    border-color: #7A247D;
+    border-top: #000000;
+    border-right: #000000;
+    border-left: #000000;
+    border-width: 2px;
+    width: 100%;
+}
+
+.minhacontacss h2{
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.textotexto{
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.salvaralterao{
+    background-color: #7A247D;
+    color: white;
+    text-decoration: none;
+    padding: 4px 30px 4px 30px;
+    font-size: 1.4em;
+    font-family: 'Bellota Text', cursive;
+}
+
+.salvaralteraodiv{
+    text-align: center;
+    margin-top: 60px;
+}
+
+.header2{
+    width: 100%;
+}
+
+.header2 ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: #F5C661;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.header2 ul a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3em;
+    font-weight: bolder;
+}
+
+.pedidos-account{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}

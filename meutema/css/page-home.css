@@ -141,3 +141,51 @@ body{
     height: 500px;
     background-color: #7A247D;
 }
+
+#div-visite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapa-end{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mapaendli {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.mapaendli img{
+    margin-right: 7px;
+}
+
+.visite{
+    margin-top: 45px;
+    color: white;
+    font-family: 'Bellota Text', sans-serif;
+    font-size: 32px;
+    font-weight: lighter;
+}
+
+.sub-footer{
+    display: flex;
+    margin: 70px;
+    height: 300px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.endereco{
+    font-size: 14px;
+    color: white;
+    text-height: 20px;
+}

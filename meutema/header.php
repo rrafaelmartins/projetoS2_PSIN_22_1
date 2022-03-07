@@ -29,8 +29,10 @@
                             <?php echo $item_name = $cart_item['data']->get_title(); ?>
                             <br>
                            <?php echo $quantity = $cart_item['quantity']; ?>
+            
                         </div>
-                        <div><?php echo $price = $cart_item['data']->get_price_html(); ?></div>      
+                        <div><?php echo $price = $cart_item['data']->get_price_html(); ?></div>    
+                          
                     </div>  
             <?php } ?>
         </li>
@@ -58,7 +60,7 @@
             <h1 class="faca_pedido">Faça um pedido</h1>
         </a>
         <a href="#abrir"><img class="img-carrinho" src="<?php echo get_stylesheet_directory_uri() ?>/img/carrinho.png" alt="meu carrinho"></a>
-        <a href="/my-account"><img class="img-conta" src="<?php echo get_stylesheet_directory_uri() ?>/img/conta.png" alt="minha conta"></a>
+        <a href="/myaccount-editaccount"><img class="img-conta" src="<?php echo get_stylesheet_directory_uri() ?>/img/conta.png" alt="minha conta"></a>
         <?php if($cart_count){ ?>
             <span class="carrinho_count"> <?=$cart_count;?></span>
             <?php } ?>

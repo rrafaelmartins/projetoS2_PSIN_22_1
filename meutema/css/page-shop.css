@@ -1,0 +1,57 @@
+#prato_selecionado{
+    position: relative;
+    top: -1px;
+    margin-top: 0px;
+    height: 100px;
+    border: none;
+    overflow: hidden;
+    background: none;
+  }
+  #prato_selecionado::-moz-focus-inner {
+    border: 0;
+  }
+  #prato_selecionado:focus {
+    background-color: white;
+    outline: none;
+  }
+  #prato_selecionado option{
+    font-family: 'Bellota Text', cursive;
+    font-weight: bolder;
+    width: 200px;
+    height: 30px;
+    font-size: 1.4em;
+    padding-top: 12px;
+    text-align: center;
+    margin-right: 20px;
+    position: relative;
+    top: 30px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #7A247D;
+    color: white;
+  }
+
+.selecione-cat{
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+
+
+.buttonselectcat{
+  font-family: 'Bellota Text', cursive;
+  font-weight: bolder;
+  border-radius: 0px;
+  background-color: #7A247D;
+  color: white;
+  border: none;
+  padding: 7px 20px 7px 20px;
+  font-size: 1.2em;
+}
+
+.descentralizar{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}

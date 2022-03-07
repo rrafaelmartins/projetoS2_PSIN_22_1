@@ -2,6 +2,7 @@
 
     function projeto_add_woocommerce_support(){
         add_theme_support('woocommerce');
+        add_theme_support('menus');
     }
 
     add_action('after_setup_theme', 'projeto_add_woocommerce_support');
@@ -58,6 +59,8 @@
                 'price' => $product->get_price_html(),
                 'link' => $product->get_permalink(),
                 'id' => $product->get_id(),
+                'slug' => $product->get_slug(),
+                'description' => $product->get_short_description(),
                 'img' => wp_get_attachment_image_src($product->get_image_id(), $img_size)[0],
             
             ];
@@ -76,7 +79,7 @@
                                 <h2 class="letras" ><?= $product['name'];?></h2>
                                 <div class="price-add">
                                     <h3 class="letras"><?= $product['price'];?></h3>
-                                    <a href="/shop/?add-to-cart=<?= $product['id'];?>&quantity=1“">
+                                    <a href="./?add-to-cart=<?= $product['id'];?>&quantity=1“">
                                         <h2><img class="carrinho2" src="<?php echo get_stylesheet_directory_uri() ?>/img/carrinho2.png"></h2>
                                     </a>
                                 </div>
@@ -88,6 +91,28 @@
         </ul>
     <?php
     }
+
+    function single_product_page($products){ ?>
+            <?php foreach($products as $product){ ?>
+                <div class="single_product_container">
+                    <div class="single-productimage" style="background-image: url(<?= $product['img']; ?>); background-repeat: no-repeat, repeat;
+                        background-position: center; background-size: cover; ">
+                    </div>
+                    <div class="single_product_container2">
+                        <h1 class="single-productname"><?= $product['name'];?></h1>
+                        <p class="single-productdesc"><?= $product['description'];?></p>
+                        <div class="single_product_container3">
+                            <p class="singleproductprice" ><?= $product['price'];?></p>
+                            <a class="linksingleproductadd" href="./?add-to-cart=<?= $product['id'];?>&quantity=1“">ADICIONAR</a>
+                        </div>
+                    </div>                 
+                </div>
+
+            <?php } ?>
+    <?php
+    }
+
+    
 
     function get_day(){
         $dayweek = date('w');
@@ -115,5 +140,57 @@
 
     };
 
-    add_action('pegar_dia', 'get_day');
+    add_action( 'template_redirect', 'phpsof_remove_product_from_cart_programmatically' );
+ 
+    function phpsof_remove_product_from_cart_programmatically($product_id) {
+        if ( is_admin() ) return;
+        $product_cart_id = WC()->cart->generate_cart_id( $product_id );
+        $cart_item_key = WC()->cart->find_product_in_cart( $product_cart_id );
+        if ( $cart_item_key ) WC()->cart->remove_cart_item( $cart_item_key );
+    }
+
+
+    function header2(){
+        wp_nav_menu([
+            'menu' => 'header2',
+            'container' => 'nav',
+            'container_class' => 'header2',
+        ]);
+    };
+
+    add_action('call_header2', 'header2');
+
+
+function format_orders($orders){
+        $final_orders = [];
+        
+        foreach($orders as $order){
+            $final_orders[] = [
+                'id' => $order->ID,
+                'date' => $order->post_date,
+                'status' => $order->post_status,
+                'price' => $order->total,
+            ];
+            ?>
+            
+            <div class="pedidos">
+                <?php echo $order->ID; ?>
+                <?php echo $order->post_date; ?>
+                <?php echo $order->post_status; ?>
+                <?php echo $order->total; ?>
+            </div>
+            
+            <?php
+      }
+  //    print_r($final_orders);
+      return $final_orders;
+  };
+
+
+
+
+
+
+
+
 ?>

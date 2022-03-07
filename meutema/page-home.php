@@ -2,10 +2,6 @@
 //Template name: Homes
 get_header(); ?>
 
-<?php if(have_posts()) { while (have_posts()) { the_post(); ?>
-    <h1><?php the_title(); ?></h1>
-    <main><?php the_content(); ?></main>
-<?php } } ?>
 
 <section class="cabecalho">
     <div class="titulo">
@@ -15,9 +11,6 @@ get_header(); ?>
         <h2>O restaurante para todas as fomes</h2>
     </div>
 </section>
-
-
-
 
 <div class="container2">
     <div class="conheca">
@@ -99,10 +92,23 @@ get_header(); ?>
 
 
 <div class="footer2">
-            
+    <div id="div-visite">
+        <h2 class="visite">VISITE NOSSA LOJA FÍSICA</h2>
+    </div>
+    <div class="sub-footer">
+        <ul class="mapa-end">
+            <li class="mapaendli"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.1884422319245!2d-43.13544708548486!3d-22.906419285012078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99817e444e692b%3A0xfd5e35fb577af2f5!2sUFF%20-%20Instituto%20de%20Computa%C3%A7%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1645993890121!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></li>
+            <li class="mapaendli"> <img  src="<?php echo get_stylesheet_directory_uri() ?>/img/telefone.png"><?php $store_address = get_option( 'woocommerce_store_address' ); echo $store_address ?></li>
+            <li class="mapaendli"> <img  src="<?php echo get_stylesheet_directory_uri() ?>/img/garfo-colher.png"> (21) 2569-6969</li>
+        </ul>
+        <div>
+            <?php if(have_posts()) { while (have_posts()) { the_post(); ?>
+                <h1><?php the_title(); ?></h1>
+                <main><?php the_content(); ?></main>
+                <?php } } ?>
+        </div>
+    </div>
 </div>
-
-
 
 
 <?php get_footer(); ?>

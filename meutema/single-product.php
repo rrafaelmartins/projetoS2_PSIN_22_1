@@ -1,62 +1,57 @@
 <?php
-/**
- * The Template for displaying all single products
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce\Templates
- * @version     1.6.4
- */
+// Template name: Home
+get_header();
+?>
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+<?php if(have_posts()) { while (have_posts()) { the_post(); 
+    $products[] = wc_get_product(get_the_ID());
+} } 
 
-get_header( 'shop' ); ?>
+$data['products'] = format_products($products);
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+?>
 
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
-
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
-
-		<?php endwhile; // end of the loop. ?>
-
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
+<main class="lista-productsmain">
+	<?php if($data['products']){ ?>
+		<?php single_product_page($data['products']) ?>
+	<?php } else { ?>
+		<?php echo "<p>Nenhum produto encontrado</p>"; ?>
+		<?php } ?>
+</main>
 
 <?php
-get_footer( 'shop' );
+    $terms = get_the_terms($product->ID, 'product_cat');
+    foreach ($terms as $term) {
+        $product_cat = $term->name;
+            break;
+    };
+    
+    $products_category = wc_get_products([
+        'limit' => 6,
+        'category' => $product_cat,
+    ]);
+    
+    //do_action('pegar_dia');
+    //print_r($products_week);
+
+?>   
 
 
+    <h1 class="maiscomidaaa">MAIS <?php echo $product_cat ?></h1>
+
+  
+<?php
+    $data['products'] = format_products($products_category);
+?>  
+
+    
+    
+    <main class="lista-productsmain">
+        <?php if($data['products']){ ?>
+            <?php product_list($data['products']) ?>
+        <?php } else { ?>
+            <?php echo "<p>Nenhum produto encontrado</p>"; ?>
+            <?php } ?>
+    </main>
+
+<?php get_footer(); ?>

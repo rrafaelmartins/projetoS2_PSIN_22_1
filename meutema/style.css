@@ -5,7 +5,10 @@
 @import url('css/footer.css');
 @import url('css/product-list.css');
 @import url('css/page-home.css');
-
+@import url('css/single-product.css');
+@import url('css/page-shop.css');
+@import url('css/checkout.css');
+@import url('css/myaccount.css');
 
 
 @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,400&display=swap');
